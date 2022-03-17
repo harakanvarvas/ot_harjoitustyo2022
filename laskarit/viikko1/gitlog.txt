@@ -1,0 +1,105 @@
+niksu@melkki:~/ot_repokertaus1/tiedostoja$ git log --stat | cat
+commit c567871b8096846802887a0af70eee3909485ad6
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 20:29:41 2022 +0200
+
+    poisto ja uudelleennimeäminen
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 165aa697527ced2fbbde7f21ed7fd49776bd1c83
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 20:22:37 2022 +0200
+
+    luotu kansio tiedostoineen
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 89aad6c5273e374036cb3a6a475b7c8342e6081a
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 20:17:40 2022 +0200
+
+    lisää muutoksia
+
+ eka.txt    | 2 +-
+ kolmas.txt | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 68af2139a892c0ea89ec187ef69820fed0643779
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 20:15:53 2022 +0200
+
+    uudelleennimetty
+
+ tiedosto.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 240ccc90a832fe8d7fe74863afca112c086f5c91
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 20:14:56 2022 +0200
+
+    uudelleennimetty
+
+ eka.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit e5edc20db88ec4244ab105305d0dd38855ccb2ca
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 20:13:29 2022 +0200
+
+    poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 40fc5dd17437c9dc0f743510932d36ae011e23e4
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 11:15:36 2022 +0200
+
+    kansion lisäys
+
+ stuff/tiedosto2.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 393f0b809c51c2219789511c11c92eac5aea7594
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 11:12:49 2022 +0200
+
+    muutoksia
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 48344ae38b2750fd4a246eb6892f04e1d0ba5cbe
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 11:11:34 2022 +0200
+
+    toinen lisäys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1af71b0b2c158214c741df36351a454227550ac0
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 11:09:28 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 6383cc9470433d39c60cb6cfafffbe532c624bd8
+Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
+Date:   Thu Mar 17 11:07:19 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
