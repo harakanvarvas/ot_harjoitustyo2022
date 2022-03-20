@@ -1,4 +1,5 @@
 niksu@melkki:~/ot_repokertaus1/tiedostoja$ git log --stat | cat
+
 commit c567871b8096846802887a0af70eee3909485ad6
 Author: Niksu Hynninen <niksu.hynninen@helsinki.fi>
 Date:   Thu Mar 17 20:29:41 2022 +0200
