@@ -12,3 +12,5 @@ python3 -m poetry run invoke test
 ```
 python3 -m poetry run invoke coverage-report
 ```
+
+[changelog.md](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/changelog.md)
