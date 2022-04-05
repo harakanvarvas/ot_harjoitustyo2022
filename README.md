@@ -1,11 +1,14 @@
-Viikko 2
+##### Sovelluksen käynnistäminen tapahtuu komennolla
+```
+python3 -m poetry run invoke start
+```
 
-[vaatimusmaarittely.md](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+##### Testien ajaminen tapahtuu komennolla
+```
+python3 -m poetry run invoke test
+```
 
-[tyoaikakirjanpito.md](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
-
-Viikko 1
-
-[gitlog.txt](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+##### Testikattavuuden kerääminen ja HTML-tiedoston muodostaminen
+```
+python3 -m poetry run invoke coverage-report
+```
