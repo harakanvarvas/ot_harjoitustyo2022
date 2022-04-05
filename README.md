@@ -5,12 +5,14 @@ tarkkuuteen, sillä tarkkaa päivää on käytännössä mahdotonta arvioida tä
 viikon tarkkuudella antaa todennäköisesti realistisemmat valmiudet varautua viimeiseen nahanluontiin
 ja muuttaa esimerkiksi terraario-olosuhteita hyvissä ajoin nahanluontiin sopivaksi.
 
-#### Dokumentaatio
+
+### Dokumentaatio
 [changelog.md](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/changelog.md)
 [määrittelydokumentti](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/vaatimusmaarittely.md)
 [tuntikirjanpito](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/tyoaikakirjanpito.md)
 
-#### Komentorivitoiminnot
+
+### Komentorivitoiminnot
 
 ##### Sovelluksen käynnistäminen tapahtuu komennolla
 ```
