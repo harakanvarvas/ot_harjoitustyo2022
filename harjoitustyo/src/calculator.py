@@ -4,10 +4,10 @@ class Calculator:
 
     def calculate(amount, frequency, last):
 
-        if last == 0:
-            result = amount * frequency
+        if int(last) == 0:
+            result = int(amount) * int(frequency)
 
         else:
-            result = (amount - 1) * frequency + last
+            result = (int(amount) - 1) * int(frequency) + int(last)
 
         return result
