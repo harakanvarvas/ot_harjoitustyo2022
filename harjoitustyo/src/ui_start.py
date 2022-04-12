@@ -83,6 +83,7 @@ class UI_calculator:
         elif change.lower() == "n":
             last_moult = 0
 
+
         result = Calculator.calculate(amount_of_moults, frequency_of_moults, last_moult)
 
         print(f"Arvioitu aikuistuminen tapahtuu {result} päivän kuluttua")
