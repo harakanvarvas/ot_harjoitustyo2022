@@ -1,9 +1,8 @@
-from ui_start import UI_start
+from text_ui_start import UiStart
 
 def main():
-    program = UI_start()
+    program = UiStart()
     program.start()
 
 if __name__ == "__main__":
     main()
-
