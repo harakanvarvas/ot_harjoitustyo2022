@@ -1,3 +1,4 @@
+from text_ui_start import UIStart
 from tkinter import Tk, ttk, constants
 
 class GraphicUI:

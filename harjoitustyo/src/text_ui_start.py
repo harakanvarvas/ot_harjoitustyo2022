@@ -38,7 +38,7 @@ class UiStart:
                 print("Virhe: Määrän tulee olla positiivinen kokonaisluku")
                 continue
 
-            if amount < 1:
+            if int(amount) < 1:
                 print("Virhe: Määrä ei voi olla pienempi kuin 1")
                 continue
 
@@ -54,7 +54,7 @@ class UiStart:
                 print("Virhe: Taajuuden tulee olla positiivinen kokonaisluku")
                 continue
 
-            if frequency < 0:
+            if int(frequency) < 0:
                 print("Virhe: Taajuus ei voi olla negatiivinen")
                 continue
 
