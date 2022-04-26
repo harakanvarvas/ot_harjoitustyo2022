@@ -37,6 +37,10 @@ class GraphicUI:
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
 
     def _handle_calculate_click(self):
+        try:
+            self._result_label.destroy()
+        except:
+            AttributeError
         entry_amount = self._entry_amount.get()
         entry_frequency = self._entry_frequency.get()
         entry_last = self._entry_last.get()
