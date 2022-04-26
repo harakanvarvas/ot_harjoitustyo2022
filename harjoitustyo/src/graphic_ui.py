@@ -1,6 +1,7 @@
 from calculator import Calculator
 from tkinter import Tk, ttk, constants, END
 
+
 class GraphicUI:
     def __init__(self, root):
         self._root = root
@@ -21,6 +22,7 @@ class GraphicUI:
         self._entry_last = ttk.Entry(master=self._root)
         calculate = ttk.Button(master=self._root, text="Laske", command=self._handle_calculate_click)
         clear = ttk.Button(master=self._root, text="Tyhjennä", command=lambda : self._handle_clear_click(self._result_label))
+#        calendar = ttk.Calendar(master=self._root, setmode="day", date_pattern="d/m/yy", padx=15, pady=15)
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)

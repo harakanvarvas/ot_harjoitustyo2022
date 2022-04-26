@@ -1,4 +1,4 @@
-from calendar import Calendar
+from ot_calendar import CalendarOT
 
 class Calculator:
     def __init__(self):
@@ -91,5 +91,5 @@ class Calculator:
 
     def weeks(self, days):
         weeks = days // 7
-        maturing_week = Calendar.maturing_week(days)
+        maturing_week = CalendarOT.maturing_week(days)
         return (weeks, maturing_week)

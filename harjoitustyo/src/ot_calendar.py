@@ -1,8 +1,8 @@
 from datetime import date, datetime, timedelta
 
-class Calendar:
+class CalendarOT:
     def today():
-        today = datetime.now()
+        today = date.today()
         return today
 
 #    def formatting_today(date):
@@ -21,6 +21,6 @@ class Calendar:
         return maturing_week
 
 
-#if __name__ == "__main__":
-#    print(Calendar.maturing_week(26))
+if __name__ == "__main__":
+    print(CalendarOT.today())
 
