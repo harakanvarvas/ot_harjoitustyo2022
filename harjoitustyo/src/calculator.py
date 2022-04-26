@@ -34,6 +34,7 @@ class Calculator:
         result = Calculator.returning_the_result(self)
         return result
 
+#tuloksen palauttaminen
     def returning_the_result(self):
         if self._result >= 7:
             weeks = Calculator.weeks(self, self._result)
@@ -87,8 +88,12 @@ class Calculator:
     def error_message_invalid_last(self):
         return f"Virhe: Viimeisen tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0"
 
-
+#viikkojen määrä
     def weeks(self, days):
         weeks = days // 7
         maturing_week = CalendarOT.maturing_week(days)
         return (weeks, maturing_week)
+
+if __name__ == "__main__":
+    calc = Calculator()
+    print(calc.check_value_amount(-1))

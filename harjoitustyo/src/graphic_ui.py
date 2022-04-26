@@ -35,7 +35,7 @@ class GraphicUI:
         self._entry_last.grid(row=4, column=1, sticky=constants.W)
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=80)
-        calendar.grid(row=7, column=1, sticky=constants.W)
+        calendar.grid(row=7, column=1, sticky=constants.W, pady=20)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
