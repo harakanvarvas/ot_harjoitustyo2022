@@ -3,9 +3,9 @@ from calendar import Calendar
 class Calculator:
     def __init__(self):
         self._last = None
-        self._amount = None
-        self._frequency = None
-        self._result = None
+#        self._amount = None
+#        self._frequency = None
+#        self._result = None
 
     def calculate(self, amount, frequency, last):
 
@@ -23,6 +23,7 @@ class Calculator:
         return self._result
 
     def check_values_amount(self, amount):
+
 
 
 
