@@ -8,6 +8,8 @@ ja muuttaa esimerkiksi terraario-olosuhteita hyvissä ajoin nahanluontiin sopiva
 
 
 ### Dokumentaatio
+[arkkitehtuuri.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/main/harjoitustyo/dokumentaatio/arkkitehtuuri.md)
+
 [changelog.md](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/changelog.md)
 
 [määrittelydokumentti](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/vaatimusmaarittely.md)
