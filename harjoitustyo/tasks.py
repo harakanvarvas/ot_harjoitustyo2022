@@ -18,4 +18,4 @@ def test(ctx):
 
 @task 
 def lint(ctx):
-    ctx.run("pylint src", pty=True)
+    ctx.run("pylint src/index.py,src/graphic_ui.py,src/calculator.py", pty=True)
