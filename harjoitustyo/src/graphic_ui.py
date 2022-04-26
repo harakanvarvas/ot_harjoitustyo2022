@@ -1,4 +1,4 @@
-#from text_ui_start import UIStart
+from calculator import Calculator
 from tkinter import Tk, ttk, constants
 
 class GraphicUI:
@@ -7,6 +7,7 @@ class GraphicUI:
         self._entry_amount = None
         self._entry_frequency = None
         self._entry_last = None
+        self._calculator = Calculator()
 
     def start(self):
         heading_label = ttk.Label(master=self._root, text="LASKIN")
@@ -36,6 +37,8 @@ class GraphicUI:
         entry_amount = self._entry_amount.get()
         entry_frequency = self._entry_frequency.get()
         entry_last = self._entry_last.get()
+
+        calculated = Calculator
 
         result_label = ttk.Label(master=self._root, text="tulos")
         result_label.grid(row=6, column=0, columnspan=2, padx=10, pady=10)

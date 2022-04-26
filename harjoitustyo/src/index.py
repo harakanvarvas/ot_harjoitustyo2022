@@ -1,7 +1,7 @@
-from text_ui_start import UiStart
+from graphic_ui import UiStart
 
 def main():
-    program = UiStart()
+    program = GraphicUI()
     program.start()
 
 if __name__ == "__main__":
