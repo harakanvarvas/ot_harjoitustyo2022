@@ -14,13 +14,13 @@ class CalendarOT:
         return week
 
     def maturing_week(amount_of_days):
-        today = Calendar.today()
+        today = CalendarOT.today()
         days = timedelta(days=amount_of_days)
         maturing_date = today + days
         maturing_week = maturing_date.isocalendar()[1]
         return maturing_week
 
 
-if __name__ == "__main__":
-    print(CalendarOT.today())
+#if __name__ == "__main__":
+#    print(CalendarOT.today())
 

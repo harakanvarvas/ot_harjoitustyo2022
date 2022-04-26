@@ -36,11 +36,10 @@ class Calculator:
 
     def returning_the_result(self):
         if self._result >= 7:
-            weeks = Calculator.weeks(self._result)
+            weeks = Calculator.weeks(self, self._result)
             return f"Aikuistuminen tapahtuu arviolta {weeks[0]} viikon kuluttua, viikolla {weeks[1]}"
         else:
             return f"Aikuistuminen tapahtuu arviolta {self._result} päivän kuluttua"
-
 
 #validin määrän tarkistaminen
     def check_value_amount(self, amount):
