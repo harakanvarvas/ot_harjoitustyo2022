@@ -38,9 +38,9 @@ class GraphicUI:
         entry_frequency = self._entry_frequency.get()
         entry_last = self._entry_last.get()
 
-        calculated = Calculator
+        calculated = self._calculator.calculate(entry_amount, entry_frequency, entry_last)
 
-        result_label = ttk.Label(master=self._root, text="tulos")
+        result_label = ttk.Label(master=self._root, text=f"tulos: {calculated}")
         result_label.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
 
 window = Tk()

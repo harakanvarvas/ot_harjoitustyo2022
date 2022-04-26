@@ -7,7 +7,7 @@ class Calculator:
         self._frequency = None
         self._result = None
 
-    def calculate(amount, frequency, last):
+    def calculate(self, amount, frequency, last):
 
         #self._result = 0
 
