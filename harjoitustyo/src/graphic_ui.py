@@ -37,6 +37,7 @@ class GraphicUI:
         entry_amount = self._entry_amount.get()
         entry_frequency = self._entry_frequency.get()
         entry_last = self._entry_last.get()
+        print(entry_last)
 
         calculated = self._calculator.calculate(entry_amount, entry_frequency, entry_last)
 
