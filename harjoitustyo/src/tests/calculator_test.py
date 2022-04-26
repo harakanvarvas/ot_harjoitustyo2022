@@ -27,6 +27,13 @@ class TestCalculator(unittest.TestCase):
     def test_valid_last_returns_no_error(self):
         self.assertEqual(self.calculator.check_value_last(1), 1)
 
+    def test_calculate_returns_amount_error_message(self):
+        self.assertEqual(self.calculator.calculate(-1, 1, 0), "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1")
+
+    def test_calculate_returns_frequency_error_message(self):
+            self.assertEqual(self.calculator.calculate(1, -1, 0), "Virhe: Taajuuden tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0")
+
+
     def test_calculator_works_when_last_equals_zero(self):
         self.assertEqual(self.calculator.calculate(1, 1, 0), "1")
 
