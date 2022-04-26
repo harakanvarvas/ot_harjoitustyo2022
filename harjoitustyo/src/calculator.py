@@ -37,6 +37,41 @@ def weeks(days):
     maturing = maturing_week(days)
     return (week_amount, maturing)
 
+def check_value_amount(amount):
+    """validin määrän tarkistaminen"""
+    try:
+        amount = int(amount)
+    except ValueError:
+        return False
+
+    if int(amount) < 1:
+        return False
+    return int(amount)
+
+def check_value_frequency(frequency):
+    """validin taajuuden tarkistaminen"""
+    try:
+        frequency = int(frequency)
+    except ValueError:
+        return False
+
+    if int(frequency) < 0:
+        return False
+    return int(frequency)
+
+def check_value_last(last):
+    """validin viimeisen tarkistaminen"""
+    if last == "":
+        return None
+    try:
+        last = int(last)
+    except ValueError:
+        return False
+
+    if int(last) < 0:
+        return False
+    return int(last)
+
 
 class Calculator:
     """laskinluokka"""
@@ -80,41 +115,6 @@ class Calculator:
             week_amount = weeks(self._result)
             return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, viikolla {week_amount[1]}"
         return f"Aikuistuminen arviolta {self._result} päivän kuluttua"
-
-def check_value_amount(amount):
-    """validin määrän tarkistaminen"""
-    try:
-        amount = int(amount)
-    except ValueError:
-        return False
-
-    if int(amount) < 1:
-        return False
-    return int(amount)
-
-def check_value_frequency(frequency):
-    """validin taajuuden tarkistaminen"""
-    try:
-        frequency = int(frequency)
-    except ValueError:
-        return False
-
-    if int(frequency) < 0:
-        return False
-    return int(frequency)
-
-def check_value_last(last):
-    """validin viimeisen tarkistaminen"""
-    if last == "":
-        return None
-    try:
-        last = int(last)
-    except ValueError:
-        return False
-
-    if int(last) < 0:
-        return False
-    return int(last)
 
 #if __name__ == "__main__":
 #    calc = Calculator()

@@ -86,14 +86,14 @@ class TestCalculator(unittest.TestCase):
         result = self.calculator.calculate(2, 1, 1)
         self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 2 päivän kuluttua")
 
-    def test_today_returns_the_current_day(self):
-        """Kuluvan päivän tarkistaminen"""
-        date = str(CalendarOT.today()).split(" ")
-        compared_date = str(datetime.now()).split(" ")
-        self.assertEqual(date[0], compared_date[0])
+#    def test_today_returns_the_current_day(self):
+#        """Kuluvan päivän tarkistaminen"""
+#        date = str(CalendarOT.today()).split(" ")
+#        compared_date = str(datetime.now()).split(" ")
+#        self.assertEqual(date[0], compared_date[0])
 
-    def test_week_returns_the_current_week(self):
-        """Kuluvan viikon tarkistaminen"""
-        week = CalendarOT.week()
-        compared_week = datetime.now().isocalendar()[1]
-        self.assertEqual(week, compared_week)
+#    def test_week_returns_the_current_week(self):
+#        """Kuluvan viikon tarkistaminen"""
+#        week = CalendarOT.week()
+#        compared_week = datetime.now().isocalendar()[1]
+#        self.assertEqual(week, compared_week)
