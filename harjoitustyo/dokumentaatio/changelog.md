@@ -48,4 +48,4 @@
 
 -Lisätty virheilmoitukset graafiseen käyttöliittymään
 
--
+-Korjattu Calculator-luokalle tehtyjä testejä
