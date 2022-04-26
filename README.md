@@ -1,9 +1,12 @@
 ## Selkärangattoman aikuistumisen ajankohdan arvioija
 
-Tällä hetkellä sovellus arvioi aikuistumisen päivän tarkkuudella. Muutetaan myöhemmin viikon 
-tarkkuuteen, sillä tarkkaa päivää on käytännössä mahdotonta arvioida täsmällisesti. Aikuistumisarvio
-viikon tarkkuudella antaa todennäköisesti realistisemmat valmiudet varautua viimeiseen nahanluontiin
-ja muuttaa esimerkiksi terraario-olosuhteita hyvissä ajoin nahanluontiin sopivaksi.
+Sovellus laskee annettujen lukujen perusteella vaillinaisen muodonvaihdoksen kautta kasvavan
+selkärangattoman aikuistumisen ajankohdan viikon tarkkuudella, mikäli laskettu aikuistumisen
+ajankohta on yli seitsemän päivän päässä. Lisäksi sovellus ilmoittaa kalenteriviikon, jolla
+se laskee aikuistumisen tapahtuvan. Toki on hyvä huomata, että esimerkiksi sukukypsyyden
+selkärangaton useimmiten saavuttaa vasta muutama viikko aikuistumisen jälkeen, ja sen laskemiseen
+tämä sovellus ei vielä sovellu. Sovellukseen lisätään vielä kalenteri, johon pystyy halutessaan 
+lisäämään arvioidun aikuistumisajankohdan ja myös poistamaan tai muuttamaan sitä.
 
 
 
