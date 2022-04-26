@@ -9,5 +9,5 @@
 |12.4.| 5 | toteutettu kalenterille muutama funktio, korjailtu testejä ja luokkia|
 |21.4.| 1 | luotu uusi repostitorio harjoitustyölle tietokoneen vaihtamisen vuoksi (helpointa)|
 |21.4.| 8 | siirretty aiemman repositorion sisältö uuteen, tehty sovellukselle graafinen käyttöliittymä|
-|26.4.|  | liitetty olemassaolevia toiminnallisuuksia graafiseen käyttöliittymään
-|yhteensä| 26 | --|
+|26.4.| 6 | liitetty olemassaolevia toiminnallisuuksia graafiseen käyttöliittymään|
+|yhteensä| 32 | --|

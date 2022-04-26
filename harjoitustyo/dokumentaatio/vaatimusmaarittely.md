@@ -22,11 +22,11 @@ että aikuistuminen tapahtuu suunnilleen samaan aikaan.
 
 Sovelluksella on toistaiseksi tarkoitus olla vain yksi käyttäjärooli eli normaalikäyttäjä. 
 
-### Suunnitellut toiminnallisuudet
+### Suunnitellut toiminnallisuudet (tehty)
 
 Sovellukseen syötetään arvioitu muodonvaihdostaajuus ja jäljellä olevien muodonvaihdosten 
 määrä, ja viimeiselle muodonvaihdokselle annetaan mahdollisuus kirjata arvioidusta 
-muodonvaihdostaajuudesta poikkeava aika.
+muodonvaihdostaajuudesta poikkeava aika. Graafinen käyttöliittymä.
 
 ### Jatkokehitysideoita
 
