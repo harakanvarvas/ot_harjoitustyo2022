@@ -31,7 +31,7 @@ class GraphicUI:
         last_label.grid(row=4, column=0, sticky=constants.E, padx=10)
         self._entry_last.grid(row=4, column=1, sticky=constants.W)
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
-        clear.grid(row=5, column=1, columnspan=2, padx=10)
+        clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=80)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
