@@ -6,7 +6,7 @@ ajankohta on yli seitsemän päivän päässä. Lisäksi sovellus ilmoittaa kale
 se laskee aikuistumisen tapahtuvan. Toki on hyvä huomata, että esimerkiksi sukukypsyyden
 selkärangaton useimmiten saavuttaa vasta muutama viikko aikuistumisen jälkeen, ja sen laskemiseen
 tämä sovellus ei vielä sovellu. Sovellukseen lisätään vielä kalenteri, johon pystyy halutessaan 
-lisäämään arvioidun aikuistumisajankohdan ja myös poistamaan tai muuttamaan sitä.
+lisäämään arvioidun aikuistumisajankohdan ja myös muuttamaan sitä tai poistamaan sen.
 
 
 
