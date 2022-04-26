@@ -1,30 +1,70 @@
-from ot_calendar import CalendarOT
+"""Tiedosto muodonvaihdoslaskutoimimtuksia varten"""
+from datetime import date, datetime, timedelta
+
+def error_message_invalid_amount():
+    """virheilmoitus väärälle määrälle"""
+    return "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1"
+
+def error_message_invalid_frequency():
+    """virheilmoitus väärälle taajuudelle"""
+    return "Virhe: Taajuuden tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0"
+
+def error_message_invalid_last():
+    """virheilmoitus väärälle viimeisen arvolle"""
+    return "Virhe: Viimeisen tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0"
+
+def check_today():
+    """tarkistaa päivämäärän"""
+    today = date.today()
+    return today
+
+def week():
+    """tarkistaa kalenteriviikon numeron"""
+    week = datetime.now().isocalendar()[1]
+    return week
+
+def maturing_week(amount_of_days):
+    """laskee aikuistumisviikolle kalenteriviikon"""
+    today = check_today()
+    days = timedelta(days=amount_of_days)
+    maturing_date = today + days
+    maturing_week = maturing_date.isocalendar()[1]
+    return maturing_week
+
+def weeks(days):
+    """viikkojen määrä"""
+    week_amount = days // 7
+    maturing = maturing_week(days)
+    return (week_amount, maturing)
+
 
 class Calculator:
+    """laskinluokka"""
     def __init__(self):
         self._result = None
 
     def calculate(self, amount, frequency, last):
+        """laskutoimituksille"""
 #tarkistetaan, että määrä on luku ja suurempi kuin 1
-        valid_amount = Calculator.check_value_amount(self, amount)
-        if valid_amount == False:
-            self._result = Calculator.error_message_invalid_amount(self)
+        valid_amount = check_value_amount(amount)
+        if valid_amount is False:
+            self._result = error_message_invalid_amount()
             return self._result
 
 #tarkistetaan, että taajuus in luku ja suurempi kuin 0
-        valid_frequency = Calculator.check_value_frequency(self, frequency)
-        if valid_frequency == False:
-            self._result = Calculator.error_message_invalid_frequency(self)
+        valid_frequency = check_value_frequency(frequency)
+        if valid_frequency is False:
+            self._result = error_message_invalid_frequency()
             return self._result
 
 #tarkistetaan, onko viimeiselle annettu arvoa, ja jos on, että se on luku ja nolla tai suurempi
-        valid_last = Calculator.check_value_last(self, last)
-        if valid_last == False:
-            self._result = Calculator.error_message_invalid_last(self)
+        valid_last = check_value_last(last)
+        if valid_last is False:
+            self._result = error_message_invalid_last()
             return self._result
 
 #varsinainen laskutoimitus
-        if valid_last == None or valid_last == 0:
+        if valid_last in (None, 0):
             self._result = valid_amount * valid_frequency
         elif valid_amount == 1:
             return f"Aikuistuminen tapahtuu arviolta {valid_last} päivän kuluttua"
@@ -34,66 +74,48 @@ class Calculator:
         result = Calculator.returning_the_result(self)
         return result
 
-#tuloksen palauttaminen
     def returning_the_result(self):
+        """tuloksen palauttaminen"""
         if self._result >= 7:
-            weeks = Calculator.weeks(self, self._result)
-            return f"Aikuistuminen tapahtuu arviolta {weeks[0]} viikon kuluttua, viikolla {weeks[1]}"
-        else:
-            return f"Aikuistuminen tapahtuu arviolta {self._result} päivän kuluttua"
+            week_amount = weeks(self._result)
+            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, viikolla {week_amount[1]}"
+        return f"Aikuistuminen arviolta {self._result} päivän kuluttua"
 
-#validin määrän tarkistaminen
-    def check_value_amount(self, amount):
-        try:
-            amount = int(amount)
-        except ValueError:
-            return False
+def check_value_amount(amount):
+    """validin määrän tarkistaminen"""
+    try:
+        amount = int(amount)
+    except ValueError:
+        return False
 
-        if int(amount) < 1:
-            return False
-        return int(amount)
+    if int(amount) < 1:
+        return False
+    return int(amount)
 
-#validin taajuuden tarkistaminen
-    def check_value_frequency(self, frequency):
-        try:
-            frequency = int(frequency)
-        except ValueError:
-            return False
+def check_value_frequency(frequency):
+    """validin taajuuden tarkistaminen"""
+    try:
+        frequency = int(frequency)
+    except ValueError:
+        return False
 
-        if int(frequency) < 0:
-            return False
-        return int(frequency)
+    if int(frequency) < 0:
+        return False
+    return int(frequency)
 
-#validin viimeisen tarkistaminen
-    def check_value_last(self, last):
-        if last == "":
-            return None
-        else:
-            try:
-                last = int(last)
-            except ValueError:
-                return False
+def check_value_last(last):
+    """validin viimeisen tarkistaminen"""
+    if last == "":
+        return None
+    try:
+        last = int(last)
+    except ValueError:
+        return False
 
-            if int(last) < 0:
-                return False
-            return int(last)
+    if int(last) < 0:
+        return False
+    return int(last)
 
-#virheilmoitukset
-    def error_message_invalid_amount(self):
-        return f"Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1"
-
-    def error_message_invalid_frequency(self):
-        return f"Virhe: Taajuuden tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0"
-    
-    def error_message_invalid_last(self):
-        return f"Virhe: Viimeisen tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0"
-
-#viikkojen määrä
-    def weeks(self, days):
-        weeks = days // 7
-        maturing_week = CalendarOT.maturing_week(days)
-        return (weeks, maturing_week)
-
-if __name__ == "__main__":
-    calc = Calculator()
-    print(calc.check_value_amount(-1))
+#if __name__ == "__main__":
+#    calc = Calculator()
+#    print(calc.check_value_amount(-1))

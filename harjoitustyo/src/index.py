@@ -1,6 +1,8 @@
-from graphic_ui import UiStart
+"""Main-tideosto"""
+from graphic_ui import GraphicUI
 
 def main():
+    """Main"""
     program = GraphicUI()
     program.start()
 
