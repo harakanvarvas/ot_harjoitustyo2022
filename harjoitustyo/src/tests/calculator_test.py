@@ -31,43 +31,45 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator.calculate(-1, 1, 0), "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1")
 
     def test_calculate_returns_frequency_error_message(self):
-            self.assertEqual(self.calculator.calculate(1, -1, 0), "Virhe: Taajuuden tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0")
+        self.assertEqual(self.calculator.calculate(1, -1, 0), "Virhe: Taajuuden tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0")
 
+    def test_calculate_returns_last_error_message(self):
+        self.assertEqual(self.calculator.calculate(1, 1, -1), "Virhe: Viimeisen tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 0")
 
-    def test_calculator_works_when_last_equals_zero(self):
-        self.assertEqual(self.calculator.calculate(1, 1, 0), "1")
+#    def test_calculator_works_when_last_equals_zero(self):
+#        self.assertEqual(self.calculator.calculate(1, 1, 0), "Aikuistuminen tapahtuu arviolta 1 päivän kuluttua")
 
     def test_calculator_works(self):
-        self.assertEqual(Calculator.calculate(1, 1, 1), 1)
-
-    def test_calculator_returns_the_result_when_last_equals_zero(self):
-        result = Calculator.calculate(1, 1, 0)
-        self.assertEqual(result, 1)
+        self.assertEqual(self.calculator.calculate(1, 1, 1), "Aikuistuminen tapahtuu arviolta 1 päivän kuluttua")
 
     def test_calculator_returns_the_result(self):
-        result = Calculator.calculate(1, 1, 1)
-        self.assertEqual(result, 1)
+        result = self.calculator.calculate(1, 1, 1)
+        self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 1 päivän kuluttua")
 
     def test_calculator_returns_the_result_when_all_the_variables_equal_zero(self):
-        result = Calculator.calculate(0, 0, 0)
-        self.assertEqual(result, 0)
+        result = self.calculator.calculate(0, 0, 0)
+        self.assertEqual(result, "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1")
 
     def test_calculator_returns_the_result_when_amount_equals_zero(self):
-        result = Calculator.calculate(0, 1, 1)
-        self.assertEqual(result, 0)
+        result = self.calculator.calculate(0, 1, 1)
+        self.assertEqual(result, "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1")
 
-    def test_calculator_returns_the_result_when_frequency_equals_zero(self):
-        result = Calculator.calculate(1, 0, 1)
-        self.assertEqual(result, 1)
+#    def test_calculator_returns_the_result_when_frequency_equals_zero(self):
+#        result = self.calculator.calculate(1, 0, 1)
+#        self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 1 päivän kuluttua")
+
+#    def test_calculator_returns_the_result_when_last_equals_zero(self):
+#        result = self.calculator.calculate(1, 1, 0)
+#        self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 1 päivän kuluttua")
 
     def test_calculator_returns_the_result_when_all_the_variables_are_negative(self):
-        result = Calculator.calculate(-1, -1, -1)
-        self.assertEqual(result, False)
+        result = self.calculator.calculate(-1, -1, -1)
+        self.assertEqual(result, "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1")
 
     def test_calculator_returns_the_result_when_amount_is_negative(self):
-        result = Calculator.calculate(-1, 1, 1)
-        self.assertEqual(result, False)
+        result = self.calculator.calculate(-1, 1, 1)
+        self.assertEqual(result, "Virhe: Määrän tulee olla kokonaisluku, eikä luku voi olla pienempi kuin 1")
 
     def test_calculator_returns_the_result_when_amount_is_more_than_one(self):
-        result = Calculator.calculate(2, 1, 1)
-        self.assertEqual(result, 2)
+        result = self.calculator.calculate(2, 1, 1)
+        self.assertEqual(result, "Aikuistuminen tapahtuu arviolta 2 päivän kuluttua")
