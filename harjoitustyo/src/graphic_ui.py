@@ -1,5 +1,5 @@
 from calculator import Calculator
-from tkinter import Tk, ttk, constants
+from tkinter import Tk, ttk, constants, END
 
 class GraphicUI:
     def __init__(self, root):
@@ -18,7 +18,8 @@ class GraphicUI:
         optional_label = ttk.Label(master=self._root, text="(Valinnainen)   ")
         last_label = ttk.Label(master=self._root, text="Viimeisen muodonvaihdoksen kesto:")
         self._entry_last = ttk.Entry(master=self._root)
-        button = ttk.Button(master=self._root, text="Laske", command=self._handle_button_click)
+        calculate = ttk.Button(master=self._root, text="Laske", command=self._handle_calculate_click)
+        clear = ttk.Button(master=self._root, text="Tyhjennä", command=self._handle_clear_click)
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)
@@ -28,12 +29,13 @@ class GraphicUI:
         optional_label.grid(row=3, column=0, sticky=constants.E)
         last_label.grid(row=4, column=0, sticky=constants.E, padx=10)
         self._entry_last.grid(row=4, column=1, sticky=constants.W)
-        button.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
+        calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
+        clear.grid(row=5, column=1, columnspan=2, padx=10)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
 
-    def _handle_button_click(self):
+    def _handle_calculate_click(self):
         entry_amount = self._entry_amount.get()
         entry_frequency = self._entry_frequency.get()
         entry_last = self._entry_last.get()
@@ -43,6 +45,12 @@ class GraphicUI:
 
         result_label = ttk.Label(master=self._root, text=f"{calculated}")
         result_label.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
+    
+    def _handle_clear_click(self):
+        self._entry_amount.delete(0, END)
+        self._entry_frequency.delete(0, END)
+        self._entry_last.delete(0, END)
+
 
 window = Tk()
 window.title("Molttilaskin")

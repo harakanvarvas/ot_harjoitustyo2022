@@ -23,7 +23,6 @@ class Calculator:
             self._result = Calculator.error_message_invalid_last(self)
             return self._result
 
-
 #varsinainen laskutoimitus
         if valid_last == None or valid_last == 0:
             self._result = valid_amount * valid_frequency
@@ -32,7 +31,15 @@ class Calculator:
         else:
             self._result = (valid_amount - 1) * valid_frequency + valid_last
 
-        return self._result
+        result = Calculator.returning_the_result(self)
+        return result
+
+    def returning_the_result(self):
+        if self._result >= 7:
+            weeks = Calculator.weeks(self._result)
+            return f"Aikuistuminen tapahtuu arviolta {weeks[0]} viikon kuluttua, viikolla {weeks[1]}"
+        return f"Aikuistuminen tapahtuu arviolta {self._result} päivän kuluttua"
+
 
 #validin määrän tarkistaminen
     def check_value_amount(self, amount):
