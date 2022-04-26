@@ -7,6 +7,7 @@ class GraphicUI:
         self._entry_amount = None
         self._entry_frequency = None
         self._entry_last = None
+        self._result_label = None
         self._calculator = Calculator()
 
     def start(self):
@@ -19,7 +20,7 @@ class GraphicUI:
         last_label = ttk.Label(master=self._root, text="Viimeisen muodonvaihdoksen kesto:")
         self._entry_last = ttk.Entry(master=self._root)
         calculate = ttk.Button(master=self._root, text="Laske", command=self._handle_calculate_click)
-        clear = ttk.Button(master=self._root, text="Tyhjennä", command=self._handle_clear_click)
+        clear = ttk.Button(master=self._root, text="Tyhjennä", command=lambda : self._handle_clear_click(self._result_label))
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)
@@ -43,13 +44,16 @@ class GraphicUI:
 
         calculated = self._calculator.calculate(entry_amount, entry_frequency, entry_last)
 
-        result_label = ttk.Label(master=self._root, text=f"{calculated}")
-        result_label.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
+        self._result_label = ttk.Label(master=self._root, text=f"{calculated}")
+        self._result_label.grid(row=6, column=0, columnspan=2, padx=10, pady=10)
     
-    def _handle_clear_click(self):
+    def _handle_clear_click(self, label):
         self._entry_amount.delete(0, END)
         self._entry_frequency.delete(0, END)
         self._entry_last.delete(0, END)
+        self._result_label.destroy()
+
+
 
 
 window = Tk()
