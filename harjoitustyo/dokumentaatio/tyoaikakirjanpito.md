@@ -10,4 +10,5 @@
 |21.4.| 1 | luotu uusi repostitorio harjoitustyölle tietokoneen vaihtamisen vuoksi (helpointa)|
 |21.4.| 8 | siirretty aiemman repositorion sisältö uuteen, tehty sovellukselle graafinen käyttöliittymä|
 |26.4.| 6 | liitetty olemassaolevia toiminnallisuuksia graafiseen käyttöliittymään|
+|3.5. | 0 | sairaana, ei muutoksia viikolla 6|
 |yhteensä| 32 | --|
