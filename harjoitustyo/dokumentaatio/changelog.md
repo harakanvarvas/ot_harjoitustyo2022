@@ -49,3 +49,7 @@
 -Lisätty virheilmoitukset graafiseen käyttöliittymään
 
 -Korjattu Calculator-luokalle tehtyjä testejä
+
+### Viikko 6
+
+-Sairaana, ei muutoksia sovellukseen
