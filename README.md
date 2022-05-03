@@ -13,11 +13,11 @@ lisäämään arvioidun aikuistumisajankohdan ja myös muuttamaan sitä tai pois
 ### Dokumentaatio
 [arkkitehtuuri.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/main/harjoitustyo/dokumentaatio/arkkitehtuuri.md)
 
-[changelog.md](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/changelog.md)
+[changelog.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/master/harjoitustyo/dokumentaatio/changelog.md)
 
-[määrittelydokumentti](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/vaatimusmaarittely.md)
+[määrittelydokumentti](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/master/harjoitustyo/dokumentaatio/vaatimusmaarittely.md)
 
-[tuntikirjanpito](https://github.com/harakanvarvas/ot_harjoitustyo/blob/master/harjoitustyo/dokumentaatio/tyoaikakirjanpito.md)
+[tuntikirjanpito](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/master/harjoitustyo/dokumentaatio/tyoaikakirjanpito.md)
 
 
 
@@ -37,6 +37,11 @@ python3 -m poetry run invoke test
 ##### Testikattavuuden kerääminen ja HTML-tiedoston muodostaminen tapahtuu komennolla
 ```
 python3 -m poetry run invoke coverage-report
+```
+
+##### Pylint-virheiden tarkistaminen
+```
+python3 -m poetry run invoke lint
 ```
 
 
