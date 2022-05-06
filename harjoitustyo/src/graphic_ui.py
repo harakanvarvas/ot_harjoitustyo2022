@@ -18,15 +18,19 @@ class GraphicUI:
         heading_label = ttk.Label(master=self._root, text="LASKIN")
         amount_label = ttk.Label(master=self._root, text="Muodonvaihdosten määrä:")
         self._entry_amount = ttk.Entry(master=self._root)
-        frequency_label = ttk.Label(master=self._root, text="Muodonvaihdosten taajuus:")
+        frequency_label = ttk.Label(master=self._root, text="Muodonvaihdosten taajuus päivinä:")
         self._entry_frequency = ttk.Entry(master=self._root)
         optional_label = ttk.Label(master=self._root, text="(Valinnainen)   ")
-        last_label = ttk.Label(master=self._root, text="Viimeisen muodonvaihdoksen kesto:")
+        last_label = ttk.Label(master=self._root, text="Viimeisen muodonvaihdoksen kesto päivinä:")
         self._entry_last = ttk.Entry(master=self._root)
         calculate = ttk.Button(master=self._root, text="Laske",
                             command=self._calculate_click)
         clear = ttk.Button(master=self._root, text="Tyhjennä",
                             command=lambda : self._clear_click())
+        set_date = ttk.Button(master=self._root, text="Lisää kalenteriin",
+                            command=lambda : self._set_date_click)
+        remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
+                            command=lambda : self._remove_date_click)
         calendar = Calendar(master=self._root, setmode="day", date_pattern="d/m/yy")
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
@@ -40,6 +44,8 @@ class GraphicUI:
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=80)
         calendar.grid(row=7, column=1, sticky=constants.W, pady=20)
+        set_date.grid(row=8, column=0, columnspan=2, padx=80, pady=20)
+        remove_date.grid(row=8, column=1, columnspan=2, sticky=constants.W, padx=80, pady=20)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
@@ -63,7 +69,13 @@ class GraphicUI:
         self._entry_last.delete(0, END)
         self._result_label.destroy()
 
+    def _set_date_click(self):
+        """Lisää kalenteriin -napin painamisen suorittaminen"""
+        pass
 
+    def _remove_date_click(self):
+        """Poista kalenterista -napin painamisen suorittaminen"""
+        pass
 
 
 window = Tk()
