@@ -72,6 +72,9 @@ def check_value_last(last):
         return False
     return int(last)
 
+def check_mondays_date(week):
+    """Palauttaa maanantain päivämäärän jotta kalenteri osaa näyttää oikean viikon"""
+
 
 class Calculator:
     """laskinluokka"""

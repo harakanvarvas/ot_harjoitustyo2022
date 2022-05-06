@@ -2,6 +2,7 @@
 from tkinter import Tk, ttk, constants, END
 from tkcalendar import Calendar
 from calculator import Calculator
+from calendar import EventCalendar
 
 class GraphicUI:
     """Graafisen käyttöliittymän luokka"""
@@ -12,6 +13,7 @@ class GraphicUI:
         self._entry_last = None
         self._result_label = None
         self._calculator = Calculator()
+        self._eventcalendar = EventCalendar()
 
     def start(self):
         """funktio rakentaa komponentit ruudulle"""
