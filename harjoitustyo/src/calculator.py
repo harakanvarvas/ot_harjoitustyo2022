@@ -28,14 +28,15 @@ def maturing_week(amount_of_days):
     today = check_today()
     days = timedelta(days=amount_of_days)
     maturing_date = today + days
-    maturing_week = maturing_date.isocalendar()[1]
-    return maturing_week
+    date = maturing_date.isocalendar()
+    maturing_date = (date[0], date[1])
+    return maturing_date
 
 def weeks(days):
     """viikkojen määrä"""
     week_amount = days // 7
     maturing = maturing_week(days)
-    return (week_amount, maturing)
+    return (week_amount, maturing[0], maturing[1])
 
 def check_value_amount(amount):
     """validin määrän tarkistaminen"""
@@ -73,7 +74,8 @@ def check_value_last(last):
     return int(last)
 
 def check_mondays_date(week):
-    """Palauttaa maanantain päivämäärän jotta kalenteri osaa näyttää oikean viikon"""
+    """Tarkistaa aikuistumisviikon maanantain päivämäärän"""
+    pass
 
 
 class Calculator:
@@ -109,15 +111,18 @@ class Calculator:
         else:
             self._result = (valid_amount - 1) * valid_frequency + valid_last
 
-        result = Calculator.returning_the_result(self)
+        result = Calculator.returning_the_result_with_text(self)
         return result
 
-    def returning_the_result(self):
+    def returning_the_result_with_text(self):
         """tuloksen palauttaminen"""
+#        if self.result >= 365:#huomioi myös karkausvuodet
         if self._result >= 7:
             week_amount = weeks(self._result)
-            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, viikolla {week_amount[1]}"
+            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, vuoden {week_amount[1]} viikolla {week_amount[2]}"
         return f"Aikuistuminen arviolta {self._result} päivän kuluttua"
+
+
 
 #if __name__ == "__main__":
 #    calc = Calculator()
