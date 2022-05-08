@@ -116,7 +116,6 @@ class Calculator:
 
     def returning_the_result_with_text(self):
         """tuloksen palauttaminen"""
-#        if self.result >= 365:#huomioi myös karkausvuodet
         if self._result >= 7:
             week_amount = weeks(self._result)
             return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, vuoden {week_amount[1]} viikolla {week_amount[2]}"

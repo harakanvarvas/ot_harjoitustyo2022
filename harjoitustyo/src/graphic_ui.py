@@ -1,6 +1,6 @@
 """Graafinen käyttöliittymä"""
 from tkinter import Tk, ttk, constants, END
-from tkcalendar import Calendar
+#from tkcalendar import Calendar
 from calculator import Calculator
 from calendar import EventCalendar
 
@@ -13,7 +13,6 @@ class GraphicUI:
         self._entry_last = None
         self._result_label = None
         self._calculator = Calculator()
-        self._eventcalendar = EventCalendar()
 
     def start(self):
         """funktio rakentaa komponentit ruudulle"""
@@ -33,7 +32,8 @@ class GraphicUI:
                             command=lambda : self._set_date_click)
         remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
                             command=lambda : self._remove_date_click)
-        calendar = Calendar(master=self._root, setmode="day", date_pattern="d/m/yy")
+        event_label = ttk.Label(master=self._root, text="Kalenteri:   ")
+#        eventcalendar = Calendar(master=self._root, setmode="day", date_pattern="d/m/yy")
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)
@@ -45,9 +45,10 @@ class GraphicUI:
         self._entry_last.grid(row=4, column=1, sticky=constants.W)
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=80)
-        calendar.grid(row=7, column=1, sticky=constants.W, pady=20)
-        set_date.grid(row=8, column=0, columnspan=2, padx=80, pady=20)
-        remove_date.grid(row=8, column=1, columnspan=2, sticky=constants.W, padx=80, pady=20)
+#        eventcalendar.grid(row=7, column=1, sticky=constants.W, pady=20)
+        set_date.grid(row=7, column=0, columnspan=2, padx=80, pady=20)
+        remove_date.grid(row=7, column=1, columnspan=2, sticky=constants.W, padx=80, pady=20)
+        event_label.grid(row=8, column=0, sticky=constants.E, pady=20)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
