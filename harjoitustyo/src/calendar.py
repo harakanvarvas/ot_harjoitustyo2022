@@ -25,29 +25,24 @@ def open_eventfile_return_list():
 
 def write_eventfile(date, event):
     """Lisää funktion argumentteina olevan päivämäärän ja tapahtuman listaan, järjestää listan ja kirjoittaa tapahtumat tiedostoon"""
-    date_event = f"{date};{event}"
+    date_event = f"{date};{event}\n"
     events = open_eventfile_return_list()
-    events.append(date_event)
+    if date_event not in events:
+        date_event = date_event.strip("\n")
+        print("not in events", date_event)
+        events.append(date_event)
     events.sort()
-    print(events)
+    #print(events)
     with open("events.csv", "w") as datafile:
-        if len(events) <= 1:
-            date_event = str(events)#tämän voisi varmasti tehdä yksinkertaisemminkin
-            date_event = date_event.replace("\n", "")
-            date_event = date_event.replace("[", "")
-            date_event = date_event.replace("]", "")
-            date_event = date_event.replace("'", "")
+        for event in events:
+            date_event = str(event)
+            date_event = date_event.strip("\n")
             date_event = date_event.split(";")
             datafile.write(f"{date_event[0]};{date_event[1]}\n")
-        else:
-            for event in events:
-                date_event = str(event)
-                date_event = date_event.replace("\n", "")
-                date_event = date_event.split(";")
-                datafile.write(f"{date_event[0]};{date_event[1]}\n")
 
 
- 
+def delete_event_by_name(name):
+    """Hakee tiedostosta tapahtuman nimellä ja poistaa sen"""
 
 def delete_eventfile():
     """Tyhjentää tapahtumatiedoston täydellisesti"""
@@ -59,6 +54,7 @@ def delete_eventfile():
 #    def __init__(self):
 
 delete_eventfile()
+write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
 write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
 write_eventfile(20221205, "Andy (Brachypelma albiceps)")
 write_eventfile(20210131, "Armi")
