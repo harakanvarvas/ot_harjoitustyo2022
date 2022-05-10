@@ -1,6 +1,18 @@
 """Kalenteriin merkittyjen aikuistumisten näyttämisen ja poistamisen hoitava luokka"""
 
-def open_eventfile():
+def open_eventfile_return_text():
+    """Avaa tapahtumatiedoston ja palauttaa joko 'Ei tapahtumia' tai tapahtumat tekstinä"""
+    content = "Ei tapahtumia"
+    try:
+        with open("events.csv") as datafile:
+            content = datafile.read()
+    except FileNotFoundError:
+        with open("events.csv", "w") as datafile:
+            pass
+    return content
+
+def open_eventfile_return_list():
+    """Avaa tapahtumatiedoston ja palauttaa listan"""
     list1 = []
     try:
         with open("events.csv") as datafile:
@@ -12,48 +24,33 @@ def open_eventfile():
     return list1
 
 def write_eventfile(date, event):
-    previous_events = open_eventfile()
-    length = len(previous_events)
-    calc = 0
-    previous = None#########################################################################################################################################################
+    """Lisää funktion argumentteina olevan päivämäärän ja tapahtuman listaan, järjestää listan ja kirjoittaa tapahtumat tiedostoon"""
+    date_event = f"{date};{event}"
+    events = open_eventfile_return_list()
+    events.append(date_event)
+    events.sort()
+    print(events)
     with open("events.csv", "w") as datafile:
-        if length == 0:
-            datafile.write(f"{date};{event}\n")
-            return
-        if length >= 1:
-            for row in previous_events:
-                row = row.replace("\n", " ")
-                part = row.split(";")
-                print(f"rivi {row}, part[0] {part[0]}, calc {calc}, length {length}")
-                if int(part[0]) == date:#jos päivämäärä on sama
-                    if part[1] < event:#listan on aakkosjärjestyksessä pienempi
-                        datafile.write(f"{part[0]};{part[1]}\n")
-                        datafile.write(f"{date};{event}\n")
-                        previous = (date, event)
-                    elif part[1] == event:
-                        pass
-                    else:
-                        datafile.write(f"{date};{event}\n")
-                        datafile.write(f"{part[0]};{part[1]}\n")
-                        previous = (part[0], part[1])
-                    calc += 2
-                elif int(part[0]) < date:#jos listan on pienempi kuin päivämäärä 
-                    datafile.write(f"{part[0]};{part[1]}\n")
-                    previous = (part[0], part[1])
-                    calc += 1
-                elif int(part[0]) > date:
-                    datafile.write(f"{date};{event}\n")
-                    calc += 1
-#                else:
-#                    datafile.write(f"{part[0]};{part[1]}\n")
-#                    calc += 1
+        if len(events) <= 1:
+            date_event = str(events)#tämän voisi varmasti tehdä yksinkertaisemminkin
+            date_event = date_event.replace("\n", "")
+            date_event = date_event.replace("[", "")
+            date_event = date_event.replace("]", "")
+            date_event = date_event.replace("'", "")
+            date_event = date_event.split(";")
+            datafile.write(f"{date_event[0]};{date_event[1]}\n")
+        else:
+            for event in events:
+                date_event = str(event)
+                date_event = date_event.replace("\n", "")
+                date_event = date_event.split(";")
+                datafile.write(f"{date_event[0]};{date_event[1]}\n")
 
-        if calc <= length:
-            datafile.write(f"{date};{event}\n")
-            calc += 1
+
  
 
 def delete_eventfile():
+    """Tyhjentää tapahtumatiedoston täydellisesti"""
     open("events.csv", "w").close()
     
 
@@ -66,5 +63,6 @@ write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
 write_eventfile(20221205, "Andy (Brachypelma albiceps)")
 write_eventfile(20210131, "Armi")
 write_eventfile(20230101, "Kaaleppi")
-opened = open_eventfile()
-print(opened)
+write_eventfile(20220315, "Mango")
+cont = open_eventfile_return_text()
+print(cont)
