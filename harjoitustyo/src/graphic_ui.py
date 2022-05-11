@@ -1,8 +1,8 @@
 """Graafinen käyttöliittymä"""
-from tkinter import Tk, ttk, constants, END
+from tkinter import Tk, ttk, constants, END, Listbox, Scrollbar
 #from tkcalendar import Calendar
 from calculator import Calculator
-from calendar import EventCalendar
+#from calendar import EventCalendar
 
 class GraphicUI:
     """Graafisen käyttöliittymän luokka"""
@@ -12,6 +12,7 @@ class GraphicUI:
         self._entry_frequency = None
         self._entry_last = None
         self._result_label = None
+        self._entry_search = None
         self._calculator = Calculator()
 
     def start(self):
@@ -28,11 +29,16 @@ class GraphicUI:
                             command=self._calculate_click)
         clear = ttk.Button(master=self._root, text="Tyhjennä",
                             command=lambda : self._clear_click())
+        search = ttk.Button(master=self._root, text="Hae kalenterista",
+                            command=lambda : self._search_click)
+        self._entry_search = ttk.Entry(master=self._root)
+#        event_label = ttk.Label(master=self._root, text="Kalenteri:   ")
+        listbox = Listbox(master=self._root, height=20)
+        scrollbar = Scrollbar(listbox)
         set_date = ttk.Button(master=self._root, text="Lisää kalenteriin",
                             command=lambda : self._set_date_click)
         remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
                             command=lambda : self._remove_date_click)
-        event_label = ttk.Label(master=self._root, text="Kalenteri:   ")
 #        eventcalendar = Calendar(master=self._root, setmode="day", date_pattern="d/m/yy")
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
@@ -43,12 +49,15 @@ class GraphicUI:
         optional_label.grid(row=3, column=0, sticky=constants.E)
         last_label.grid(row=4, column=0, sticky=constants.E, padx=10)
         self._entry_last.grid(row=4, column=1, sticky=constants.W)
-        calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
+        calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=40)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=80)
 #        eventcalendar.grid(row=7, column=1, sticky=constants.W, pady=20)
-        set_date.grid(row=7, column=0, columnspan=2, padx=80, pady=20)
-        remove_date.grid(row=7, column=1, columnspan=2, sticky=constants.W, padx=80, pady=20)
-        event_label.grid(row=8, column=0, sticky=constants.E, pady=20)
+        search.grid(row=7, column=0, columnspan=1, sticky=constants.E, padx=20, pady=20)
+        self._entry_search.grid(row=7, column=1, sticky=constants.W, ipadx=28)
+#        event_label.grid(row=8, column=0, sticky=constants.E, pady=10)
+        listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=150)
+        set_date.grid(row=14, column=0, columnspan=2, padx=80, pady=20)
+        remove_date.grid(row=14, column=1, columnspan=2, sticky=constants.W, padx=80, pady=20)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
@@ -71,6 +80,10 @@ class GraphicUI:
         self._entry_frequency.delete(0, END)
         self._entry_last.delete(0, END)
         self._result_label.destroy()
+
+    def _search_click(self):
+        """Hakee kalenterista annetulla hakusanalla"""
+        pass
 
     def _set_date_click(self):
         """Lisää kalenteriin -napin painamisen suorittaminen"""

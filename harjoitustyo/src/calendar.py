@@ -33,7 +33,6 @@ def open_eventfile_return_list():
 def write_eventfile(date, event):
     """Lisää funktion argumentteina olevan päivämäärän ja tapahtuman listaan, järjestää listan ja kirjoittaa tapahtumat tiedostoon"""
     date_event_tuple = (str(date), event)
-    date_event = f"{date};{event}\n"#muotoilu
     events = open_eventfile_return_list()#hakee tiedoston listamuodossa
 
     if date_event_tuple not in events:#tarkistaa, että lisättävä tapahtuma ei ole listassa jo
@@ -55,13 +54,20 @@ def find_event_by_name(name):
     event = list(filter(lambda x:name in x, events))
     return event
 
-
-
 def delete_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja poistaa sen"""
     events = open_eventfile_return_list()
     index = [events.index(x) for x in events if x[1] == name]
-    return index
+    index = str(index)
+    index = index.strip("[]")
+    index = int(index)
+    events.pop(index)
+
+    with open("events.csv", "w") as datafile:#avataan tiedosto kirjoitettavaksi
+        for event in events:
+            datafile.write(f"{event[0]};{event[1]}\n")
+
+    return True
 
 def delete_eventfile():
     """Tyhjentää tapahtumatiedoston täydellisesti"""
