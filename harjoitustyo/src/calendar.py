@@ -74,9 +74,18 @@ def delete_eventfile():
     open("events.csv", "w").close()
     
 
-#class EventCalendar:
-#    """Luokka tapahtumien hallintaan"""
-#    def __init__(self):
+class EventCalendar:
+    """Luokka tapahtumien hallintaan"""
+    def __init__(self):
+        
+
+
+
+
+
+
+
+
 
 delete_eventfile()
 write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
