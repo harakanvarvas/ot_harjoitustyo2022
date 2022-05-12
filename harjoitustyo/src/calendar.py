@@ -98,17 +98,34 @@ def delete_eventfile():
 class EventCalendar:
     """Luokka tapahtumien hallintaan"""
     def __init__(self):
-        self._events = open_eventfile_return_text()
+        self._events = None
         self._newdate = None
         self._newevent = None
 
     def show_events(self):
         """Palauttaa tämänhetkiset tapahtumat"""
+        self._events = open_eventfile_return_text()
         return self._events
+
+    def form_event(self, event):
+        self._newevent = str(event)
+        self._newevent = self._newevent.split(";")
+        return self._newevent[1]
+
+    def form_date(self, event):
+        self._newevent = str(event)
+        self._newevent = self._newevent.split(";")
+        self._newdate = self._newevent[0].split("/")
+        self._newdate = f"{self._newdate[2]}{self._newdate[1]}{self._newdate[0]}"
+        return self._newdate
 
     def new_event(self, event):
         """Lisää kalenteriin uuden tapahtuman"""
-        pass
+        self._newdate =  EventCalendar.form_date(self, event)
+        self._newevent = EventCalendar.form_event(self, event)
+        val = write_eventfile(self._newdate, self._newevent)
+        return val
+
 
     def search_for_event(self, name):
         """Hakee tapahtumaa annetulla hakusanalla"""
@@ -118,9 +135,14 @@ class EventCalendar:
 
 
 
-#if __name__ == "__main__":
+if __name__ == "__main__":
 
-#    delete_eventfile()
+    delete_eventfile()
+    evcal = EventCalendar()
+    value = evcal.new_event("11/11/2011;Marilyn (Idolomantis diabolica)")
+    print(value)
+    events = evcal.show_events()
+    print(events)
 #    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
 #    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
 #    write_eventfile(20221205, "Andy (Brachypelma albiceps)")

@@ -2,7 +2,7 @@
 from tkinter import Tk, ttk, constants, END, Listbox, Scrollbar
 #from tkcalendar import Calendar
 from calculator import Calculator
-#from calendar import EventCalendar
+from calendar import EventCalendar
 
 class GraphicUI:
     """Graafisen käyttöliittymän luokka"""
@@ -15,6 +15,7 @@ class GraphicUI:
         self._entry_search = None
         self._entry_setdate = None
         self._calculator = Calculator()
+        self._calendar = EventCalendar()
 
     def start(self):
         """funktio rakentaa komponentit ruudulle"""
@@ -30,7 +31,7 @@ class GraphicUI:
         clear = ttk.Button(master=self._root, text="Tyhjennä",
                             command=lambda : self._clear_click())
         self._entry_setdate = ttk.Entry(master=self._root)
-        self._entry_setdate.insert(0, "DD/MM/YYYY; Nimi (Laji valinnainen)")
+        self._entry_setdate.insert(0, "DD/MM/YYYY;Nimi (Laji valinnainen)")
         set_date = ttk.Button(master=self._root, text="Lisää kalenteriin",
                             command=lambda : self._set_date_click)
         remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
@@ -93,6 +94,8 @@ class GraphicUI:
         event = self._entry_setdate.get()
         if event == "VIIKKO/VUOSI; Nimi (Laji valinnainen)":
             pass
+        else:
+            self._calendar.new_event(event)
 
     def _remove_date_click(self):
         """Poista kalenterista -napin painamisen suorittaminen"""
