@@ -118,15 +118,15 @@ class EventCalendar:
 
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
-    delete_eventfile()
-    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
-    write_eventfile(20210131, "Armi")
-    write_eventfile(20230101, "Kaaleppi")
-    write_eventfile(20220315, "Mango")
+#    delete_eventfile()
+#    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+#    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+#    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
+#    write_eventfile(20210131, "Armi")
+#    write_eventfile(20230101, "Kaaleppi")
+#    write_eventfile(20220315, "Mango")
 #inde = delete_event_by_name("Armi")
 #print(inde)
 #cont = open_eventfile_return_list()
