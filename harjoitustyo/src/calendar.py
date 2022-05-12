@@ -61,9 +61,19 @@ def write_eventfile(date, event):
 
 def find_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja palauttaa sen"""
+    content = ""
     events = open_eventfile_return_list()
     for event in events:
-        
+        #print(event)
+        if name in event[1]:
+            year = f"{event[0][0]}{event[0][1]}{event[0][2]}{event[0][3]}"
+            month = f"{event[0][4]}{event[0][5]}"
+            day = f"{event[0][6]}{event[0][7]}"
+            content += f"{day}.{month}.{year}    {event[1]}\n"
+    if content == "":
+        return f"Hakusanalla {name} ei löydy tapahtumia"
+    return content
+    
 
 def delete_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja poistaa sen"""
@@ -92,10 +102,18 @@ class EventCalendar:
         self._newdate = None
         self._newevent = None
 
+    def show_events(self):
+        """Palauttaa tämänhetkiset tapahtumat"""
+        return self._events
+
     def new_event(self, event):
+        """Lisää kalenteriin uuden tapahtuman"""
         pass
+
     def search_for_event(self, name):
-        event = find_event_by_name(name)
+        """Hakee tapahtumaa annetulla hakusanalla"""
+        self._events = find_event_by_name(name)
+        return self._events
 
 
 
@@ -113,3 +131,5 @@ if __name__ == "__main__":
 #print(inde)
 #cont = open_eventfile_return_list()
 #print(cont)
+    #cont = find_event_by_name("Brache")
+    #print(cont)

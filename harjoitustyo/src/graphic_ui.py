@@ -18,7 +18,6 @@ class GraphicUI:
 
     def start(self):
         """funktio rakentaa komponentit ruudulle"""
-        heading_label = ttk.Label(master=self._root, text="LASKIN")
         amount_label = ttk.Label(master=self._root, text="Muodonvaihdosten määrä:")
         self._entry_amount = ttk.Entry(master=self._root)
         frequency_label = ttk.Label(master=self._root, text="Muodonvaihdosten taajuus päivinä:")
@@ -31,18 +30,20 @@ class GraphicUI:
         clear = ttk.Button(master=self._root, text="Tyhjennä",
                             command=lambda : self._clear_click())
         self._entry_setdate = ttk.Entry(master=self._root)
+        self._entry_setdate.insert(0, "DD/MM/YYYY; Nimi (Laji valinnainen)")
         set_date = ttk.Button(master=self._root, text="Lisää kalenteriin",
                             command=lambda : self._set_date_click)
         remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
                             command=lambda : self._remove_date_click)
-        search = ttk.Button(master=self._root, text="Hae kalenterista nimellä",
+        search = ttk.Button(master=self._root, text="Hae kalenterista",
                             command=lambda : self._search_click)
         self._entry_search = ttk.Entry(master=self._root)
+        self._entry_search.insert(0, "Hae nimellä tai lajilla")
+#        self._entry_search.bind()
         listbox = Listbox(master=self._root, height=20)
 #        scrollbar = Scrollbar(master=listbox)
 
 
-        heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)
         self._entry_amount.grid(row=1, column=1, sticky=constants.W, ipadx=30)
         frequency_label.grid(row=2, column=0, sticky=constants.E, padx=10, pady=10)
@@ -54,11 +55,10 @@ class GraphicUI:
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=140)
         set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=26, padx=36, pady=10)
         self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=45)
-        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, padx=35, pady=10)
+        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=27, padx=35, pady=10)
         self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=45)
         listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=150)
         remove_date.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=13, padx=96, pady=10)
-
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
@@ -85,12 +85,14 @@ class GraphicUI:
     def _search_click(self):
         """Hakee kalenterista annetulla hakusanalla"""
         name = self._entry_search.get()
-        pass
+        if name == "Hae nimellä tai lajilla":
+            pass
 
     def _set_date_click(self):
         """Lisää kalenteriin -napin painamisen suorittaminen"""
         event = self._entry_setdate.get()
-        pass
+        if event == "VIIKKO/VUOSI; Nimi (Laji valinnainen)":
+            pass
 
     def _remove_date_click(self):
         """Poista kalenterista -napin painamisen suorittaminen"""

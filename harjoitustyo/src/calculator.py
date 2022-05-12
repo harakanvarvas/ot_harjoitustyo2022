@@ -73,9 +73,12 @@ def check_value_last(last):
         return False
     return int(last)
 
-def check_mondays_date(week):
+def check_mondays_date(week, year):
     """Tarkistaa aikuistumisviikon maanantain päivämäärän"""
-    pass
+    monday = str(date.fromisocalendar(year, week, 1))
+    monday = monday.split("-")
+    monday = f"{monday[2]}.{monday[1]}.{monday[0]}"
+    return monday
 
 
 class Calculator:
@@ -118,7 +121,8 @@ class Calculator:
         """tuloksen palauttaminen"""
         if self._result >= 7:
             week_amount = weeks(self._result)
-            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, vuoden {week_amount[1]} viikolla {week_amount[2]}"
+            monday = check_mondays_date(week_amount[2], week_amount[1])
+            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, vuoden {week_amount[1]} viikolla {week_amount[2]} (maanantai {monday})"
         return f"Aikuistuminen arviolta {self._result} päivän kuluttua"
 
 
@@ -126,3 +130,4 @@ class Calculator:
 #if __name__ == "__main__":
 #    calc = Calculator()
 #    print(calc.check_value_amount(-1))
+#    check_mondays_date(50, 2022)
