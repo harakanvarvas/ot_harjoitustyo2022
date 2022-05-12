@@ -1,6 +1,6 @@
 """Kalenteriin merkittyjen aikuistumisten näyttämisen ja poistamisen hoitava luokka"""
 
-def open_eventfile_return_text():
+def open_eventfile_return_for_listbox():
     """Avaa tapahtumatiedoston ja palauttaa joko 'Ei tapahtumia' tai tapahtumat tekstinä"""
     content = "Ei tapahtumia"
     try:
@@ -10,7 +10,7 @@ def open_eventfile_return_text():
         with open("events.csv", "w") as datafile:
             pass
     if content != "Ei tapahtumia":
-        content = ""
+        content = []
         year = None
         month = None
         day = None
@@ -19,7 +19,8 @@ def open_eventfile_return_text():
             year = f"{event[0][0]}{event[0][1]}{event[0][2]}{event[0][3]}"
             month = f"{event[0][4]}{event[0][5]}"
             day = f"{event[0][6]}{event[0][7]}"
-            content += f"{day}.{month}.{year}    {event[1]}\n"
+            content.append(f"{day}.{month}.{year}    {event[1]}")
+        content.reverse()
     return content#palauttaa joko sisällön tai tiedon siitä, että tapahtumia ei ole vielä tallennettu
 
 def open_eventfile_return_list():
@@ -93,6 +94,7 @@ def delete_event_by_name(name):
 def delete_eventfile():
     """Tyhjentää tapahtumatiedoston täydellisesti"""
     open("events.csv", "w").close()
+    return True
     
 
 class EventCalendar:
@@ -104,15 +106,17 @@ class EventCalendar:
 
     def show_events(self):
         """Palauttaa tämänhetkiset tapahtumat"""
-        self._events = open_eventfile_return_text()
+        self._events = open_eventfile_return_for_listbox()
         return self._events
 
     def form_event(self, event):
+        """"Muotoilee tapahtuman nimiosuuden ja palauttaa sen"""
         self._newevent = str(event)
         self._newevent = self._newevent.split(";")
         return self._newevent[1]
 
     def form_date(self, event):
+        """Muotoile tapahtuman päivämääräosuuden ja palauttaa sen"""
         self._newevent = str(event)
         self._newevent = self._newevent.split(";")
         self._newdate = self._newevent[0].split("/")
@@ -126,29 +130,37 @@ class EventCalendar:
         val = write_eventfile(self._newdate, self._newevent)
         return val
 
-
     def search_for_event(self, name):
         """Hakee tapahtumaa annetulla hakusanalla"""
         self._events = find_event_by_name(name)
         return self._events
 
+    def delete_event(self, event):
+        delete_event_by_name(event)
+        self._events = open_eventfile_return_text()
+        return self._events
 
-
+    def remove_all_events(self):
+        delete_eventfile()
+        self._events = None
+        return self._events
 
 if __name__ == "__main__":
-
+#
     delete_eventfile()
     evcal = EventCalendar()
-    value = evcal.new_event("11/11/2011;Marilyn (Idolomantis diabolica)")
-    print(value)
+#    value = evcal.new_event("11/11/2011;Marilyn (Idolomantis diabolica)")
+#    print(value)
+#    events = evcal.show_events()
+#    print(events)
+    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
+    write_eventfile(20210131, "Armi")
+    write_eventfile(20230101, "Kaaleppi")
+    write_eventfile(20220315, "Mango")
     events = evcal.show_events()
     print(events)
-#    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-#    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-#    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
-#    write_eventfile(20210131, "Armi")
-#    write_eventfile(20230101, "Kaaleppi")
-#    write_eventfile(20220315, "Mango")
 #inde = delete_event_by_name("Armi")
 #print(inde)
 #cont = open_eventfile_return_list()

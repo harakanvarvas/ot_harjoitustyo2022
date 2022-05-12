@@ -42,6 +42,9 @@ class GraphicUI:
         self._entry_search.insert(0, "Hae nimellä tai lajilla")
 #        self._entry_search.bind()
         listbox = Listbox(master=self._root, height=20)
+        events = self._calendar.show_events()
+        for event in events:
+            listbox.insert(0, event)
 #        scrollbar = Scrollbar(master=listbox)
 
 
