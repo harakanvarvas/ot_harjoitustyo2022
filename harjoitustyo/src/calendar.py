@@ -9,6 +9,17 @@ def open_eventfile_return_text():
     except FileNotFoundError:#mikäli tiedostoa ei ole vielä luotu, luodaan se
         with open("events.csv", "w") as datafile:
             pass
+    if content != "Ei tapahtumia":
+        content = ""
+        year = None
+        month = None
+        day = None
+        list_content = open_eventfile_return_list()
+        for event in list_content:
+            year = f"{event[0][0]}{event[0][1]}{event[0][2]}{event[0][3]}"
+            month = f"{event[0][4]}{event[0][5]}"
+            day = f"{event[0][6]}{event[0][7]}"
+            content += f"{day}.{month}.{year}    {event[1]}\n"
     return content#palauttaa joko sisällön tai tiedon siitä, että tapahtumia ei ole vielä tallennettu
 
 def open_eventfile_return_list():
@@ -77,26 +88,26 @@ def delete_eventfile():
 class EventCalendar:
     """Luokka tapahtumien hallintaan"""
     def __init__(self):
-        
+        self._date = None
+        self._event = None
+
+    #def search_for_event()
 
 
 
 
+if __name__ == "__main__":
 
-
-
-
-
-delete_eventfile()
-write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-write_eventfile(20221205, "Andy (Brachypelma albiceps)")
-write_eventfile(20210131, "Armi")
-write_eventfile(20230101, "Kaaleppi")
-write_eventfile(20220315, "Mango")
-inde = delete_event_by_name("Armi")
-print(inde)
+    delete_eventfile()
+    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
+    write_eventfile(20210131, "Armi")
+    write_eventfile(20230101, "Kaaleppi")
+    write_eventfile(20220315, "Mango")
+#inde = delete_event_by_name("Armi")
+#print(inde)
 #cont = open_eventfile_return_list()
 #print(cont)
-cont = open_eventfile_return_text()
-print(cont)
+    cont = open_eventfile_return_text()
+    print(cont)

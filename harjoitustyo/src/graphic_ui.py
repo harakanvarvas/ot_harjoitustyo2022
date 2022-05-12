@@ -13,6 +13,7 @@ class GraphicUI:
         self._entry_last = None
         self._result_label = None
         self._entry_search = None
+        self._entry_setdate = None
         self._calculator = Calculator()
 
     def start(self):
@@ -29,6 +30,7 @@ class GraphicUI:
                             command=self._calculate_click)
         clear = ttk.Button(master=self._root, text="Tyhjennä",
                             command=lambda : self._clear_click())
+        self._entry_setdate = ttk.Entry(master=self._root)
         set_date = ttk.Button(master=self._root, text="Lisää kalenteriin",
                             command=lambda : self._set_date_click)
         remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
@@ -48,14 +50,15 @@ class GraphicUI:
         optional_label.grid(row=3, column=0, sticky=constants.E)
         last_label.grid(row=4, column=0, sticky=constants.E, padx=10)
         self._entry_last.grid(row=4, column=1, sticky=constants.W, ipadx=30)
-        calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=40)
+        calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=140)
-        set_date.grid(row=7, column=0, columnspan=2, padx=20, pady=20)
-        remove_date.grid(row=7, column=1, columnspan=2, sticky=constants.W, padx=140, pady=20)
+        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=40, pady=10)
+        self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=58)
 #        eventcalendar.grid(row=7, column=1, sticky=constants.W, pady=20)
-        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, padx=20, pady=20)
+        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=40, pady=10)
         self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=58)
         listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=150)
+        remove_date.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=13, padx=98, pady=10)
 
 
         self._root.grid_columnconfigure(0, weight=1)
