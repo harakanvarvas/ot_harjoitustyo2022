@@ -8,8 +8,18 @@ tallennetut tapahtumat. Tapahtumat on järjestetty päivämäärän mukaan pieni
 Kalenteriin on mahdollista tallentaa tapahtumia. Tallennettavan tapahtuman muodon tulisi olla
 'DD/MM/YYYY;Nimi (Valinnainen laji)', jotta kalenteri osaa tallentaa tapahtuman oikein. Kalenteriin
 liittyy myös hakutoiminto, jolla tapahtumaa voi hakea nimellä, ja lisäksi tapahtuman voi poistaa
-ja kalenterin tyhjentää kokonaan.
+ja kalenterin tyhjentää kokonaan. Kalenteri ei tallenna duplikaatteja, eli samalle päivälle 
+tismalleen samalla nimellä tallennettavia tapahtumia.
 
+### Esimerkkejä tapahtumien tallentamisesta
+
+Tekstikenttään ilman lainausmerkkejä kirjoitettava:
+
+'21/12/2022;Kirppu'
+
+'31/03/2023;Sirkka (Hierodula membranacea)'
+
+'01/07/2023;Hämähäkki (Dolichothele diamantinensis)'
 
 
 ### Dokumentaatio
