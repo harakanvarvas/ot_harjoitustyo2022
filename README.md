@@ -13,13 +13,13 @@ tismalleen samalla nimellä tallennettavia tapahtumia.
 
 ### Esimerkkejä tapahtumien tallentamisesta
 
-Tekstikenttään kohtaan *Lisää kalenteriin* ilman lainausmerkkejä kirjoitettava:
+Kirjoitettu tekstikenttään kohtaan *Lisää kalenteriin*:
 
-'21/12/2022;Kirppu'
+21/12/2022;Kirppu
 
-'31/03/2023;Sirkka (Hierodula membranacea)'
+31/03/2023;Sirkka (Hierodula membranacea)
 
-'01/07/2023;Hämähäkki (Dolichothele diamantinensis)'
+01/07/2023;Hämähäkki (Dolichothele diamantinensis)
 
 
 ### Dokumentaatio
