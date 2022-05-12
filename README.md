@@ -3,10 +3,12 @@
 Sovellus laskee annettujen lukujen perusteella vaillinaisen muodonvaihdoksen kautta kasvavan
 selkärangattoman aikuistumisen ajankohdan viikon tarkkuudella, mikäli laskettu aikuistumisen
 ajankohta on yli seitsemän päivän päässä. Lisäksi sovellus ilmoittaa kalenteriviikon, jolla
-se laskee aikuistumisen tapahtuvan. Toki on hyvä huomata, että esimerkiksi sukukypsyyden
-selkärangaton useimmiten saavuttaa vasta muutama viikko aikuistumisen jälkeen, ja sen laskemiseen
-tämä sovellus ei vielä sovellu. Sovellukseen lisätään vielä kalenteri, johon pystyy halutessaan 
-lisäämään arvioidun aikuistumisajankohdan ja myös muuttamaan sitä tai poistamaan sen.
+se laskee aikuistumisen tapahtuvan. Sovelluksessa on listamuotoinen kalenteri, joka näyttää
+tallennetut tapahtumat. Tapahtumat on järjestetty päivämäärän mukaan pienimmästä suurimpaan.
+Kalenteriin on mahdollista tallentaa tapahtumia. Tallennettavan tapahtuman muodon tulisi olla
+'DD/MM/YYYY;Nimi (Valinnainen laji)', jotta kalenteri osaa tallentaa tapahtuman oikein. Kalenteriin
+liittyy myös hakutoiminto, jolla tapahtumaa voi hakea nimellä, ja lisäksi tapahtuman voi poistaa
+ja kalenterin tyhjentää kokonaan.
 
 
 
