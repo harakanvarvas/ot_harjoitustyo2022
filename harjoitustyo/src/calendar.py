@@ -62,8 +62,8 @@ def write_eventfile(date, event):
 def find_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja palauttaa sen"""
     events = open_eventfile_return_list()
-    event = list(filter(lambda x:name in x, events))
-    return event
+    for event in events:
+        
 
 def delete_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja poistaa sen"""
@@ -88,10 +88,14 @@ def delete_eventfile():
 class EventCalendar:
     """Luokka tapahtumien hallintaan"""
     def __init__(self):
-        self._date = None
-        self._event = None
+        self._events = open_eventfile_return_text()
+        self._newdate = None
+        self._newevent = None
 
-    #def search_for_event()
+    def new_event(self, event):
+        pass
+    def search_for_event(self, name):
+        event = find_event_by_name(name)
 
 
 
@@ -109,5 +113,3 @@ if __name__ == "__main__":
 #print(inde)
 #cont = open_eventfile_return_list()
 #print(cont)
-    cont = open_eventfile_return_text()
-    print(cont)

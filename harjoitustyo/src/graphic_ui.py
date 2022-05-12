@@ -35,12 +35,12 @@ class GraphicUI:
                             command=lambda : self._set_date_click)
         remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
                             command=lambda : self._remove_date_click)
-        search = ttk.Button(master=self._root, text="Hae kalenterista",
+        search = ttk.Button(master=self._root, text="Hae kalenterista nimellä",
                             command=lambda : self._search_click)
         self._entry_search = ttk.Entry(master=self._root)
         listbox = Listbox(master=self._root, height=20)
 #        scrollbar = Scrollbar(master=listbox)
-#        eventcalendar = Calendar(master=self._root, setmode="day", date_pattern="d/m/yy")
+
 
         heading_label.grid(row=0, column=0, columnspan=2, padx=10, pady=10)
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)
@@ -52,10 +52,9 @@ class GraphicUI:
         self._entry_last.grid(row=4, column=1, sticky=constants.W, ipadx=30)
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=140)
-        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=45, pady=10)
+        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=26, padx=36, pady=10)
         self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=45)
-#        eventcalendar.grid(row=7, column=1, sticky=constants.W, pady=20)
-        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=45, pady=10)
+        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, padx=35, pady=10)
         self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=45)
         listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=150)
         remove_date.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=13, padx=96, pady=10)
@@ -85,10 +84,12 @@ class GraphicUI:
 
     def _search_click(self):
         """Hakee kalenterista annetulla hakusanalla"""
+        name = self._entry_search.get()
         pass
 
     def _set_date_click(self):
         """Lisää kalenteriin -napin painamisen suorittaminen"""
+        event = self._entry_setdate.get()
         pass
 
     def _remove_date_click(self):
