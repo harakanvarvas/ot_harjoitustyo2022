@@ -13,7 +13,7 @@ tismalleen samalla nimellä tallennettavia tapahtumia.
 
 ### Esimerkkejä tapahtumien tallentamisesta
 
-Tekstikenttään ilman lainausmerkkejä kirjoitettava:
+Tekstikenttään kohtaan *Lisää kalenteriin* ilman lainausmerkkejä kirjoitettava:
 
 '21/12/2022;Kirppu'
 
