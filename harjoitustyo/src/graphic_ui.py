@@ -52,13 +52,13 @@ class GraphicUI:
         self._entry_last.grid(row=4, column=1, sticky=constants.W, ipadx=30)
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=140)
-        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=40, pady=10)
-        self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=58)
+        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=45, pady=10)
+        self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=45)
 #        eventcalendar.grid(row=7, column=1, sticky=constants.W, pady=20)
-        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=40, pady=10)
-        self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=58)
+        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=20, padx=45, pady=10)
+        self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=45)
         listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=150)
-        remove_date.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=13, padx=98, pady=10)
+        remove_date.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=13, padx=96, pady=10)
 
 
         self._root.grid_columnconfigure(0, weight=1)
