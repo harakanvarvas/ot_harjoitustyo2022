@@ -78,8 +78,13 @@ def find_event_by_name(name):
 
 def delete_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja poistaa sen"""
+    name = name.split("    ")
+    #print(name[1])
+    date = name[0].split(".")
+    date = f"{date[2]}{date[1]}{date[0]}"
+    #print(date)
     events = open_eventfile_return_list()
-    index = [events.index(x) for x in events if x[1] == name]
+    index = [events.index(x) for x in events if x[0] == date and x[1] == name[1]]
     index = str(index)
     index = index.strip("[]")
     index = int(index)
@@ -137,7 +142,7 @@ class EventCalendar:
 
     def delete_event(self, event):
         delete_event_by_name(event)
-        self._events = open_eventfile_return_text()
+        self._events = open_eventfile_return_for_listbox()
         return self._events
 
     def remove_all_events(self):
@@ -148,20 +153,22 @@ class EventCalendar:
 if __name__ == "__main__":
 #
     delete_eventfile()
-    evcal = EventCalendar()
+#    evcal = EventCalendar()
 #    value = evcal.new_event("11/11/2011;Marilyn (Idolomantis diabolica)")
 #    print(value)
 #    events = evcal.show_events()
 #    print(events)
-    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
-    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
-    write_eventfile(20210131, "Armi")
-    write_eventfile(20230101, "Kaaleppi")
-    write_eventfile(20220315, "Mango")
-    events = evcal.show_events()
-    print(events)
-#inde = delete_event_by_name("Armi")
+#    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+#    write_eventfile(20221205, "Mandy (Brachypelma albiceps)")
+#    write_eventfile(20221205, "Andy (Brachypelma albiceps)")
+#    write_eventfile(20210131, "Armi")
+#    write_eventfile(20230101, "Kaaleppi")
+#    write_eventfile(20220315, "Mango")
+#    events = evcal.show_events()
+#    print(events)
+#    inde = delete_event_by_name("05.12.2022    Andy (Brachypelma albiceps)")
+#    events = evcal.show_events()
+#    print(events)
 #print(inde)
 #cont = open_eventfile_return_list()
 #print(cont)
