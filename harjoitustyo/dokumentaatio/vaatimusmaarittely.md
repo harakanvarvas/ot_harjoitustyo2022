@@ -31,6 +31,6 @@ muodonvaihdostaajuudesta poikkeava aika. Graafinen käyttöliittymä.
 ### Jatkokehitysideoita
 
 Sovellukseen voisi rakentaa kalenterin, johon halutessaan kykenisi lisäämään sovelluksen 
-arvioiman aikuistumisajankohdan ja merkitä ylös tapahtuneet muodonvaihdokset 
+arvioiman aikuistumisajankohdan *(TEHTY)* ja merkitä ylös tapahtuneet muodonvaihdokset 
 uudelleenarvioinnin helpottamiseksi. Lisäksi sovellusta voisi laajentaa muistamaan 
 muutaman eniten tarvitsemani lajin muodonvaihdostiheydet ja määrät käytön nopeuttamiseksi.
