@@ -3,6 +3,7 @@
 def open_eventfile_return_for_listbox():
     """Avaa tapahtumatiedoston ja palauttaa joko 'Ei tapahtumia' tai tapahtumat tekstinä"""
     content = "Ei tapahtumia"
+    content_list = []
     try:
         with open("events.csv") as datafile:
             content = datafile.read()
@@ -10,18 +11,19 @@ def open_eventfile_return_for_listbox():
         with open("events.csv", "w") as datafile:
             pass
     if content != "Ei tapahtumia":
-        content = []
         year = None
         month = None
         day = None
-        list_content = open_eventfile_return_list()
-        for event in list_content:
+        opened_content = open_eventfile_return_list()
+        for event in opened_content:
             year = f"{event[0][0]}{event[0][1]}{event[0][2]}{event[0][3]}"
             month = f"{event[0][4]}{event[0][5]}"
             day = f"{event[0][6]}{event[0][7]}"
-            content.append(f"{day}.{month}.{year}    {event[1]}")
-        content.reverse()
-    return content#palauttaa joko sisällön tai tiedon siitä, että tapahtumia ei ole vielä tallennettu
+            content_list.append(f"{day}.{month}.{year}    {event[1]}")
+        content_list.reverse()
+    else:
+        content_list.append(content)
+    return content_list#palauttaa joko sisällön tai tiedon siitä, että tapahtumia ei ole vielä tallennettu
 
 def open_eventfile_return_list():
     """Avaa tapahtumatiedoston ja palauttaa listan"""

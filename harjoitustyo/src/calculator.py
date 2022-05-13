@@ -122,7 +122,7 @@ class Calculator:
         if self._result >= 7:
             week_amount = weeks(self._result)
             monday = check_mondays_date(week_amount[2], week_amount[1])
-            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, vuoden {week_amount[1]} viikolla {week_amount[2]} (maanantai {monday})"
+            return f"Aikuistuminen arviolta {week_amount[0]} viikon kuluttua, vuoden {week_amount[1]} viikolla {week_amount[2]} (viikon maanantai on {monday})"
         return f"Aikuistuminen arviolta {self._result} päivän kuluttua"
 
 

@@ -1,6 +1,4 @@
-"""
-Tiedosto laskimen testeille
-"""
+"""Tiedosto laskimen testeille"""
 import unittest
 from datetime import datetime
 from calculator import Calculator

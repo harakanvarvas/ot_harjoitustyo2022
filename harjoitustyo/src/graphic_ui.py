@@ -39,7 +39,6 @@ class GraphicUI:
                             command=lambda : self._search_click())
         self._entry_search = ttk.Entry(master=self._root)
         self._entry_search.insert(0, "Hae nimellä tai lajilla")
-#        self._entry_search.bind()
         self._listbox = Listbox(master=self._root, height=20)
         self._listbox.bind("<<ListboxSelect>>", lambda x : self._selected_event())
         events = self._calendar.show_events()
