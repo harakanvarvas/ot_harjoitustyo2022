@@ -11,4 +11,10 @@
 |21.4.| 8 | siirretty aiemman repositorion sisältö uuteen, tehty sovellukselle graafinen käyttöliittymä|
 |26.4.| 6 | liitetty olemassaolevia toiminnallisuuksia graafiseen käyttöliittymään|
 |3.5. | 0 | sairaana, ei muutoksia viikolla 6|
-|yhteensä| 32 | --|
+|7.5. | 3 | tyhjennysmahdollisuus laskimeen, EventCalendaria aloitettu|
+|8.5. | 6 | EventCalendarin funktioiden perustoiminnallisuutta jatkettu|
+|10.5.| 4 | EventCalendar-luokan toimintoja aloitettu|
+|11.5.| 4 | Graafisen käyttöliittymän yhdistämistä EventCalendariin aloitettu|
+|12.5.| 4 | Graafisen käytttöliittymän yhdistämistä EventCalendariin jatkettu|
+|13.5.| 3 | Laskin saatu suurin piirtein valmiiksi|
+|yhteensä| 52 | --|
