@@ -62,27 +62,25 @@ def write_eventfile(date, event):
 
 def find_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja palauttaa sen"""
-    content = ""
+    content_list = []
     events = open_eventfile_return_list()
     for event in events:
-        #print(event)
-        if name in event[1]:
+        if name.lower() in event[1].lower():
             year = f"{event[0][0]}{event[0][1]}{event[0][2]}{event[0][3]}"
             month = f"{event[0][4]}{event[0][5]}"
             day = f"{event[0][6]}{event[0][7]}"
-            content += f"{day}.{month}.{year}    {event[1]}\n"
-    if content == "":
+            content_list.append(f"{day}.{month}.{year}    {event[1]}")
+            content_list.reverse()
+    if len(content_list) < 1:
         return f"Hakusanalla {name} ei löydy tapahtumia"
-    return content
+    return content_list
     
 
 def delete_event_by_name(name):
     """Hakee tiedostosta tapahtuman nimellä ja poistaa sen"""
     name = name.split("    ")
-    #print(name[1])
     date = name[0].split(".")
     date = f"{date[2]}{date[1]}{date[0]}"
-    #print(date)
     events = open_eventfile_return_list()
     index = [events.index(x) for x in events if x[0] == date and x[1] == name[1]]
     index = str(index)
@@ -106,6 +104,7 @@ class EventCalendar:
     """Luokka tapahtumien hallintaan"""
     def __init__(self):
         self._events = None
+        self._searched_events = None
         self._newdate = None
         self._newevent = None
 
@@ -137,8 +136,8 @@ class EventCalendar:
 
     def search_for_event(self, name):
         """Hakee tapahtumaa annetulla hakusanalla"""
-        self._events = find_event_by_name(name)
-        return self._events
+        self._searched_events = find_event_by_name(name)
+        return self._searched_events
 
     def delete_event(self, event):
         delete_event_by_name(event)

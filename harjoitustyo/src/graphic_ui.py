@@ -22,10 +22,10 @@ class GraphicUI:
         """funktio rakentaa komponentit ruudulle"""
         amount_label = ttk.Label(master=self._root, text="Muodonvaihdosten määrä:")
         self._entry_amount = ttk.Entry(master=self._root)
-        frequency_label = ttk.Label(master=self._root, text="Muodonvaihdosten taajuus päivinä:")
+        frequency_label = ttk.Label(master=self._root, text="Muodonvaihdosväli päivinä:")
         self._entry_frequency = ttk.Entry(master=self._root)
         optional_label = ttk.Label(master=self._root, text="(Valinnainen)   ")
-        last_label = ttk.Label(master=self._root, text="Viimeisen muodonvaihdoksen kesto päivinä:")
+        last_label = ttk.Label(master=self._root, text="Viimeisen muodonvaihdosväli päivinä:")
         self._entry_last = ttk.Entry(master=self._root)
         calculate = ttk.Button(master=self._root, text="Laske",
                             command=self._calculate_click)
@@ -35,8 +35,6 @@ class GraphicUI:
         self._entry_setdate.insert(0, "DD/MM/YYYY;Nimi (Laji valinnainen)")
         set_date = ttk.Button(master=self._root, text="Lisää kalenteriin",
                             command=lambda : self._set_date_click())
-        remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
-                            command=lambda : self._remove_date_click())
         search = ttk.Button(master=self._root, text="Hae kalenterista",
                             command=lambda : self._search_click())
         self._entry_search = ttk.Entry(master=self._root)
@@ -47,7 +45,10 @@ class GraphicUI:
         events = self._calendar.show_events()
         for event in events:
             self._listbox.insert(0, event)
-#        scrollbar = Scrollbar(master=listbox)
+        return_full_calendar = ttk.Button(master=self._root, text="Palaa kalenterinäkymään",
+                            command=lambda : self._return_full_calendar_click())
+        remove_date = ttk.Button(master=self._root, text="Poista kalenterista",
+                            command=lambda : self._remove_date_click())
 
 
         amount_label.grid(row=1, column=0, sticky=constants.E, padx=10, pady=10)
@@ -59,12 +60,13 @@ class GraphicUI:
         self._entry_last.grid(row=4, column=1, sticky=constants.W, ipadx=30)
         calculate.grid(row=5, column=0, columnspan=2, padx=10, pady=20)
         clear.grid(row=5, column=1, columnspan=2, sticky=constants.W, padx=140)
-        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=26, padx=36, pady=10)
-        self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=45)
-        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=27, padx=35, pady=10)
-        self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=45)
-        self._listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=150)
-        remove_date.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=13, padx=96, pady=10)
+        set_date.grid(row=7, column=0, columnspan=1, sticky=constants.E, ipadx=27, padx=15, pady=10)
+        self._entry_setdate.grid(row=7, column=1, sticky=constants.W, ipadx=56)
+        search.grid(row=8, column=0, columnspan=1, sticky=constants.E, ipadx=27, padx=15, pady=10)
+        self._entry_search.grid(row=8, column=1, sticky=constants.W, ipadx=56)
+        self._listbox.grid(row=9, column=0, rowspan=2, columnspan=2, ipadx=180)
+        return_full_calendar.grid(row=13, column=1, columnspan=1, sticky=constants.W, ipadx=10, padx=50)
+        remove_date.grid(row=13, column=0, columnspan=1, sticky=constants.E, ipadx=13, pady=10)
 
         self._root.grid_columnconfigure(0, weight=1)
         self._root.grid_columnconfigure(1, weight=1, minsize=250)
@@ -93,6 +95,14 @@ class GraphicUI:
         name = self._entry_search.get()
         if name == "Hae nimellä tai lajilla":
             pass
+        else:
+            events = self._calendar.search_for_event(name)
+            self._listbox.delete(0, END)
+            if type(events) is str:
+                self._listbox.insert(0, events)
+            else:
+                for event in events:
+                    self._listbox.insert(0, event)
 
     def _set_date_click(self):
         """Lisää kalenteriin -napin painamisen suorittaminen"""
@@ -116,16 +126,19 @@ class GraphicUI:
         """Poista kalenterista -napin painamisen suorittaminen"""
         try:
             selected = self._selected_event()
-            #print(selected)
             events = self._calendar.delete_event(selected)
-            #events = self._calendar.show_events()
             self._listbox.delete(0, END)
             for event in events:
                 self._listbox.insert(0, event)
         except:
             pass
 
-
+    def _return_full_calendar_click(self):
+        self._listbox.delete(0, END)
+        events = self._calendar.show_events()
+        self._listbox.delete(0, END)
+        for event in events:
+            self._listbox.insert(0, event)
 
 window = Tk()
 window.title("Molttilaskin")
