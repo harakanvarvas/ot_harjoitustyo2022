@@ -53,3 +53,15 @@
 ### Viikko 6
 
 -Sairaana, ei muutoksia sovellukseen
+
+### Viikko 7
+
+-Luotu uusi luokka EventCalendar, joka käsittelee tiedon tallennuksen csv-tiedostoon
+
+-Poistettu kalenteri graafisesta käyttöliittymästä (lakkasi toimimasta, tkcalendar ei löytänyt datetime-moduuliaan)
+
+-Luotu listamuotoinen kalenteri listboxilla, joka näyttää tallennetut tapahtumat
+
+-Mahdollisuus lisätä tapahtumia kalenteriin ja poistaa niitä sekä hakea hakusanalla
+
+-Hakutoiminnon jälkeen nappia painamalla pääsee takaisin kalenterin kokonäkymään
