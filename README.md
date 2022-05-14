@@ -25,7 +25,7 @@ Kirjoitettu tekstikenttään kohtaan *Lisää kalenteriin*:
 ### Dokumentaatio
 [arkkitehtuuri.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/main/harjoitustyo/dokumentaatio/arkkitehtuuri.md)
 
-[sekvenssikaavio.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/main/harjoitustyo/dokumentaatio/sekvenssikaavio.md)
+[sekvenssikaavio.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/main/harjoitustyo/dokumentaatio/sekvenssikaavio.md)(luonnos)
 
 [changelog.md](https://github.com/harakanvarvas/ot_harjoitustyo2022/blob/master/harjoitustyo/dokumentaatio/changelog.md)
 
