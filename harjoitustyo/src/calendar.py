@@ -2,15 +2,17 @@
 
 def open_eventfile_return_for_listbox():
     """Avaa tapahtumatiedoston ja palauttaa joko 'Ei tapahtumia' tai tapahtumat tekstinä"""
-    content = "Ei tapahtumia"
+    opened_content = "Ei tapahtumia"
     content_list = []
     try:
         with open("events.csv") as datafile:
-            content = datafile.read()
+            opened_content = datafile.read()
     except FileNotFoundError:#mikäli tiedostoa ei ole vielä luotu, luodaan se
         with open("events.csv", "w") as datafile:
             pass
-    if content != "Ei tapahtumia":
+    if opened_content == "Ei tapahtumia" or opened_content == "":
+        content_list.append(f"Ei tapahtumia")
+    else:
         year = None
         month = None
         day = None
@@ -21,8 +23,6 @@ def open_eventfile_return_for_listbox():
             day = f"{event[0][6]}{event[0][7]}"
             content_list.append(f"{day}.{month}.{year}    {event[1]}")
         content_list.reverse()
-    else:
-        content_list.append(content)
     return content_list#palauttaa joko sisällön tai tiedon siitä, että tapahtumia ei ole vielä tallennettu
 
 def open_eventfile_return_list():
@@ -93,7 +93,6 @@ def delete_event_by_name(name):
     with open("events.csv", "w") as datafile:#avataan tiedosto kirjoitettavaksi
         for event in events:
             datafile.write(f"{event[0]};{event[1]}\n")
-
     return True
 
 def delete_eventfile():
@@ -151,9 +150,11 @@ class EventCalendar:
         self._events = None
         return self._events
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 #
-    delete_eventfile()
+#    delete_eventfile()
+#    cont = open_eventfile_return_for_listbox()
+#    print(cont)
 #    evcal = EventCalendar()
 #    value = evcal.new_event("11/11/2011;Marilyn (Idolomantis diabolica)")
 #    print(value)

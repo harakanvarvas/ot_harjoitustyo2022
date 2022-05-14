@@ -1,6 +1,5 @@
 """Graafinen käyttöliittymä"""
 from tkinter import Tk, ttk, constants, END, Listbox, Scrollbar
-#from tkcalendar import Calendar
 from calculator import Calculator
 from calendar import EventCalendar
 
@@ -117,7 +116,7 @@ class GraphicUI:
 
     def _selected_event(self):
         """Toimittaa listboxissa valitun tapahtuman koodin käyttöön"""
-        selected = self._listbox.curselection()#[0]
+        selected = self._listbox.curselection()
         selected = self._listbox.get(selected)
         return selected
 
@@ -133,6 +132,7 @@ class GraphicUI:
             pass
 
     def _return_full_calendar_click(self):
+        """Palaa kalenterinäkymään"""
         self._listbox.delete(0, END)
         events = self._calendar.show_events()
         self._listbox.delete(0, END)
