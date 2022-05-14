@@ -13,7 +13,7 @@ tismalleen samalla nimellä tallennettavia tapahtumia.
 
 ### Esimerkkejä tapahtumien tallentamisesta
 
-Kirjoitettu tekstikenttään kohtaan *Lisää kalenteriin*:
+Muotoiluesimerkkejä tekstikenttään kohtaan *Lisää kalenteriin*:
 
 21/12/2022;Kirppu
 
