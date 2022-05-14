@@ -17,4 +17,5 @@
 |11.5.| 4 | Graafisen käyttöliittymän yhdistämistä EventCalendariin aloitettu|
 |12.5.| 4 | Graafisen käytttöliittymän yhdistämistä EventCalendariin jatkettu|
 |13.5.| 3 | Laskin saatu suurin piirtein valmiiksi|
-|yhteensä| 52 | --|
+|14.5.| 3 | Laskimelle päivitetty testejä, EventCalendarin testiluokan kanssa vaikeuksia|
+|yhteensä| 55 | --|
